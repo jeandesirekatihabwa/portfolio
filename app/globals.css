@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .nav__link {
+        @apply relative text-base font-medium w-fit block text-white;
+
+        /* The after pseudo-element for the underline */
+        &::after {
+            content: '';
+            @apply absolute bottom-0 left-0 h-[3px] w-0 bg-yellow-400 transition-all duration-300;
+            transform-origin: left center;
+        }
+
+        /* Hover effect for both the underline and text color */
+        &:hover::after {
+            @apply w-full; /* Underline expands */
+        }
+
+        &:hover {
+            @apply text-yellow-400; /* Change text color on hover */
+        }
+    }
+}
